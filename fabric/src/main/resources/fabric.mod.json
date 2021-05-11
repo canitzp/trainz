@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "id": "examplemod",
+  "id": "trainz",
   "version": "${version}",
-  "name": "Example Mod",
+  "name": "Trainz",
   "description": "This is an example description! Tell everyone what your mod is about!",
   "authors": [
-    "Me!"
+    "canitzp"
   ],
   "contact": {
     "homepage": "https://fabricmc.net/",
@@ -16,7 +16,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.examplemod.fabric.ExampleModFabric"
+      "de.canitzp.trainz.fabric.TrainzFabric"
     ]
   },
   "depends": {
@@ -25,7 +25,5 @@
     "minecraft": ">=1.16.4",
     "architectury": ">=1.1.55"
   },
-  "suggests": {
-    "flamingo": "*"
-  }
+  "suggests": {}
 }
