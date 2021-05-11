@@ -3,6 +3,8 @@ package de.canitzp.trainz;
 import me.shedaniel.architectury.event.events.PlayerEvent;
 import me.shedaniel.architectury.registry.DeferredRegister;
 import me.shedaniel.architectury.registry.entity.EntityRenderers;
+import me.shedaniel.architectury.utils.Env;
+import me.shedaniel.architectury.utils.EnvExecutor;
 import net.minecraft.client.renderer.entity.MinecartRenderer;
 import net.minecraft.core.Registry;
 import net.minecraft.world.entity.EntityType;
@@ -23,7 +25,10 @@ public class Trainz {
         ITEMS.register();
         ENTITIES.register();
 
-        EntityRenderers.register(FuelableMinecart.TYPE, MinecartRenderer<FuelableMinecart>::new);
+        EnvExecutor.runInEnv(Env.CLIENT, () -> () -> {
+            EntityRenderers.register(FuelableMinecart.TYPE, MinecartRenderer<FuelableMinecart>::new);
+        });
+
 
         PlayerEvent.OPEN_MENU.register((player, menu) -> {
             System.out.println(player);

@@ -8,6 +8,7 @@ import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.fabricmc.fabric.api.networking.v1.PacketSender;
 import net.fabricmc.fabric.impl.networking.ServerSidePacketRegistryImpl;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.multiplayer.ClientPacketListener;
 import net.minecraft.core.Registry;
 import net.minecraft.network.FriendlyByteBuf;
@@ -54,7 +55,8 @@ public class SpawnEntityPacket {
             entity.setUUID(uuid);
             entity.setId(entityId);
             entity.setPos(x, y, z);
-            client.level.addFreshEntity(entity);
+            entity.setPacketCoordinates(x, y, z);
+            client.level.putNonPlayerEntity(entityId, entity);
         });
     }
 

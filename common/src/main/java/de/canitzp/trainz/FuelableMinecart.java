@@ -23,4 +23,5 @@ public class FuelableMinecart extends AbstractMinecart {
     public Packet<?> getAddEntityPacket() {
         return TrainzExpectedPlatform.getAddEntityPacket(this, super.getAddEntityPacket());
     }
+
 }
